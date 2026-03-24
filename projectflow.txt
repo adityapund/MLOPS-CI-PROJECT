@@ -1,0 +1,145 @@
+YT-MLOPS-CI-Masterclass Project Flow (CI Pipeline)
+
+1> Create a GitHub repository for CI project.
+2> Clone repository locally.
+3> Create project structure:
+   - .github/workflows/
+
+4> Write a sample application code.
+5> Perform unit testing of your code using pytest so for that write test.py and run pytest test.py
+6> Verify project runs locally.
+
+7> Create requirements.txt file.
+8> Add dependencies (numpy, pandas, scikit-learn, pytest, etc.).
+
+9> Create .gitignore file.
+10> Ignore venv, __pycache__, logs, etc.
+
+11> Initialize git and push initial code.
+
+--- CI Setup (GitHub Actions) ---
+
+12> Create workflow file:
+    .github/workflows/ci.yaml
+
+13> Define workflow name (CI Pipeline).
+
+14> Add trigger:
+    on:
+      push:
+      pull_request:
+
+15> Define job:
+    jobs:
+      test:
+
+16> Set runner:
+    runs-on: ubuntu-latest
+
+17> Add steps section.
+
+--- CI Pipeline Steps ---
+
+18> Checkout repository:
+    uses: actions/checkout@v3
+
+19> Set up Python:
+    uses: actions/setup-python@v4
+
+20> Specify Python version (e.g., 3.10).
+
+21> Install dependencies:
+    pip install -r requirements.txt
+
+22> Install testing tools (pytest).
+
+
+23> Run unit tests:
+    pytest tests/
+
+24> Fail pipeline if tests fail.
+
+--- Code Quality & Validation ---
+
+25> Ensure all tests pass before merge.
+26> Use CI as quality gate.
+27> Prevent broken code from merging.
+
+--- CI Trigger Flow ---
+
+29> Developer pushes code to GitHub.
+30> GitHub Actions triggers CI pipeline.
+31> Code is checked out.
+32> Dependencies are installed.
+33> Tests are executed.
+34> Pipeline passes or fails.
+
+--- Pull Request Workflow ---
+
+35> Create pull request.
+36> CI pipeline runs automatically.
+37> Review test results.
+38> Merge only if CI passes.
+
+
+
+Notes: 
+1> What is CI?
+Continuous Integration is the practice of automatically testing code whenever changes are made.
+
+2> Why CI is important?
+It ensures code quality, catches bugs early, and prevents broken code from reaching production.
+
+3> What is GitHub Actions?
+A CI/CD tool that automates workflows directly inside GitHub.
+
+4> What triggers CI pipeline?
+Push events and pull requests.
+
+5> What is workflow file?
+A YAML file that defines CI steps.
+
+6> What is runner?
+A machine where CI jobs execute (e.g., ubuntu-latest).
+
+7> What happens in CI pipeline?
+Code checkout → dependency install → tests → validation.
+
+8> What is unit testing?
+Testing individual components of code using tools like pytest.
+
+9> What happens if tests fail?
+Pipeline fails and code cannot be merged.
+
+10> What is quality gate?
+Condition that must pass (tests/lint) before merging.
+
+11> Difference between CI and CD?
+CI = testing and validation, CD = deployment.
+
+12> What is linting?
+Checking code style and syntax errors.
+
+13> Why use pytest?
+For automated testing of Python code.
+
+14> What is pull request validation?
+Running CI before merging code.
+
+15> How CI helps in MLOps?
+Ensures ML code correctness before training/deployment.
+
+16> What is automation in CI?
+Automatic execution of tests and checks without manual effort.
+
+17> What is caching in CI?
+Stores dependencies to speed up builds.
+
+18> What is reproducibility in CI?
+Same results every time pipeline runs.
+
+19> What is YAML in CI?
+Configuration file format used to define workflows.
+
+20> Real-world use?
+Automating testing, validation, and integration in production pipelines.
