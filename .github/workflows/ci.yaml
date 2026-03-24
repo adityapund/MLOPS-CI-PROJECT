@@ -21,11 +21,12 @@ jobs:
       with:
         python-version: '3.9'
 
-    - name: Install dependencies
+    - name: Install requirements
       run: |
         python -m pip install --upgrade pip
         pip install pytest streamlit
 
-    - name: Run tests
+
+    - name: Run tests 
       run: |
         pytest test.py
